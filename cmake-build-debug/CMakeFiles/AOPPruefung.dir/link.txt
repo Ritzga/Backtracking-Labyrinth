@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/AOPPruefung.dir/main.cpp.o CMakeFiles/AOPPruefung.dir/Labyrinth.cpp.o CMakeFiles/AOPPruefung.dir/Coordinate.cpp.o CMakeFiles/AOPPruefung.dir/Solver.cpp.o CMakeFiles/AOPPruefung.dir/Reader.cpp.o  -o AOPPruefung 
