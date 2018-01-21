@@ -29,6 +29,11 @@ public:
     void setMap(vector<vector<Coordinate>> &map);
     const vector<vector<Coordinate>> &getMap();
 
+    void setUsedPathAt(Coordinate &coordinate, bool &usedPath);
+
+    Coordinate & at(unsigned int &x, unsigned int &y);
+    Coordinate & at(Coordinate & coordinate);
+
 private:
     //2D Vector des Labyrinthes
     vector<vector<Coordinate>>map;

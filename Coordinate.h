@@ -28,6 +28,7 @@ public:
     void setY(unsigned int y);
     bool isWalkable() const;
     void setWalkable(bool walkable);
+
 private:
     //X Koordinate des Feldes
     unsigned int x = 0;

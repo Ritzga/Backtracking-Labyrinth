@@ -5,8 +5,9 @@ using namespace std;
 
 int main()
 {
-    Solver solver = Solver("labyrinth.txt", false);
+    Solver solver = Solver("../labyrinth.txt", false);
     cout << solver.getMap();
-    solver.SolveProblem(solver.getCurrentPosition());
+    Coordinate position = solver.getCurrentPosition();
+    solver.SolveProblem(position);
     return 0;
 }

@@ -15,7 +15,7 @@ public:
     Solver(const string &fileName, bool fastSolve);
 
     //Methoden
-    bool SolveProblem(Coordinate position);
+    bool SolveProblem(Coordinate &position);
 
     //Getter und Setter
     const Labyrinth &getMap() const;

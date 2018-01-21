@@ -12,7 +12,7 @@ unsigned int Coordinate::getX() {
 }
 
 void Coordinate::setX(unsigned int x) {
-    Coordinate::x = x;
+    this->x = x;
 }
 
 unsigned int Coordinate::getY() {
@@ -20,7 +20,7 @@ unsigned int Coordinate::getY() {
 }
 
 void Coordinate::setY(unsigned int y) {
-    Coordinate::y = y;
+    this->y = y;
 }
 
 bool Coordinate::isWalkable() const {

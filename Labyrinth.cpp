@@ -32,8 +32,22 @@ void Labyrinth::setEndPoint(const Coordinate &endPoint) {
     Labyrinth::endPoint = endPoint;
 }
 
+Coordinate &Labyrinth::at(Coordinate &coordinate) {
+    unsigned int x = coordinate.getX();
+    unsigned int y = coordinate.getY();
+    return at(x, y);
+}
+
+Coordinate & Labyrinth::at(unsigned int& x, unsigned int& y) {
+    return map.at(x).at(y);
+}
+
+void Labyrinth::setUsedPathAt(Coordinate &coordinate, bool &usedPath) {
+    this->at(coordinate).setUsedPath(usedPath);
+}
+
 void Labyrinth::setMap(vector<vector<Coordinate>> &map) {
-    Labyrinth::map = map;
+    this->map = map;
 }
 
 const vector<vector<Coordinate>> &Labyrinth::getMap() {
@@ -65,3 +79,4 @@ ostream &operator<<(ostream &os, const Labyrinth &labyrinth) {
     os << fields;
     return os;
 }
+
