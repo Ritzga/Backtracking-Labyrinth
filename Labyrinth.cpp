@@ -38,7 +38,7 @@ Coordinate &Labyrinth::at(Coordinate &coordinate) {
     return at(x, y);
 }
 
-Coordinate & Labyrinth::at(unsigned int& x, unsigned int& y) {
+Coordinate & Labyrinth::at(unsigned int x, unsigned int y) {
     return map.at(x).at(y);
 }
 

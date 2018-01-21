@@ -31,7 +31,7 @@ public:
 
     void setUsedPathAt(Coordinate &coordinate, bool &usedPath);
 
-    Coordinate & at(unsigned int &x, unsigned int &y);
+    Coordinate & at(unsigned int x, unsigned int y);
     Coordinate & at(Coordinate & coordinate);
 
 private:
