@@ -36,19 +36,19 @@ Labyrinth Reader::readMap()
         //cout << "Endpunkt: " << generatedMap.getEndPoint().getX() << " " << generatedMap.getEndPoint().getY() << "\n";
 
         //Variablen für das auslesen des tatsächlichen Labyrinthes
-        unsigned int currentLabyrinthRow = 0;
+        unsigned int yAsRow = 0;
         //2D Vector mit der höhe und der breite des Labyrinthes
-        vector<vector<Coordinate>> mapPoints (vector<vector<Coordinate> >(generatedMap.getHeight(), vector<Coordinate>(generatedMap.getWidth())));
+        vector<vector<Coordinate>> mapPoints (vector<vector<Coordinate> >(generatedMap.getWidth(), vector<Coordinate>(generatedMap.getHeight())));
 
         while (getline(file, currentRow))
         {
             //Auslesen des Labyrinthes
                 //cout << currentRow << " Labyrinth\n"; //Debug
-                for(unsigned int j=0; j < currentRow.size(); j++)
+                for(unsigned int xAsColumn=0; xAsColumn < currentRow.size(); xAsColumn++)
                 {
-                    mapPoints.at(currentLabyrinthRow).at(j).initialize(currentLabyrinthRow, j, currentRow[j] != '*');
+                    mapPoints.at(xAsColumn).at(yAsRow).initialize(xAsColumn,yAsRow, currentRow[xAsColumn] != '*');
                 }
-                currentLabyrinthRow++;
+                yAsRow++;
         }
         file.close();
 

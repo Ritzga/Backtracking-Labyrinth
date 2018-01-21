@@ -11,35 +11,43 @@ void Solver::setCurrentPosition(const Coordinate &currentPosition) {
     Solver::currentPosition = currentPosition;
 }
 
-bool Solver::pathExists(Coordinate position) {
+bool Solver::pathExists(unsigned int x, unsigned int y) {
     //prüft ob es das Feld überhaupt gibt
-    if (position.getX() < 0 || position.getX() > map.getWidth()) {
+    if (x < 0 || x > map.getWidth()) {
         return false;
-    } else if (position.getY() < 0 || position.getY() > map.getHeight()) {
+    } else if (y < 0 || y > map.getHeight()) {
         return false;
     }
-    return map.getMap().at(position.getY()).at(position.getX()).isWalkable();
+    return map.at(x, y).isWalkable() && !map.at(x, y).isUsedPath();
 }
 
 bool Solver::SolveProblem(Coordinate &position) {
     try {
-        cout << map;
         //Positionen werden auf Begehbarkeit abhängig der Position geprüft
-        cout << position;
+        cout << "\naktuelle Position: " << position;
+
         //Setzt den Punkt als benutzt
-        position.setUsedPath(true);
         unsigned int x = position.getX();
         unsigned int y = position.getY();
-        map.at(x, y);
+        map.at(x, y).setUsedPath(true);
+        cout << "Labyrinth\n" << map;
 
         if (map.getEndPoint() == position) {
             cout << "GESCHAAAAAFT";
             return true;
         }
-        return (pathExists(Coordinate(x, y + 1)) && SolveProblem(map.at(x, y + 1))) ||
-               (pathExists(Coordinate(x + 1, y)) && SolveProblem(map.at(x + 1, y))) ||
-               (pathExists(Coordinate(x, y - 1)) && SolveProblem(map.at(x, y - 1))) ||
-               (pathExists(Coordinate(x - 1, y)) && SolveProblem(map.at(x - 1, y)));
+
+        cout <<
+             "path at " << x << "," << y - 1 << " exists " << pathExists(x, y - 1) << "\n" <<
+             "path at " << x + 1 << "," << y << " exists " << pathExists(x + 1, y) << "\n" <<
+             "path at " << x << "," << y + 1 << " exists " << pathExists(x, y + 1) << "\n" <<
+             "path at " << x - 1 << "," << y << " exists " << pathExists(x - 1, y) << "\n" <<
+        endl;
+
+        return (pathExists(x, y - 1) && SolveProblem(map.at(x, y - 1))) || //norden
+               (pathExists(x + 1, y) && SolveProblem(map.at(x + 1, y))) || //sueden
+               (pathExists(x, y + 1) && SolveProblem(map.at(x, y + 1))) || //osten
+               (pathExists(x - 1, y) && SolveProblem(map.at(x - 1, y)));   //westen
     } catch (exception &e) {
         cerr << e.what();
     }

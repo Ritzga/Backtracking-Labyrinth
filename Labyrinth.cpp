@@ -42,6 +42,10 @@ Coordinate & Labyrinth::at(unsigned int x, unsigned int y) {
     return map.at(x).at(y);
 }
 
+const Coordinate & Labyrinth::at(unsigned int x, unsigned int y) const {
+    return map.at(x).at(y);
+}
+
 void Labyrinth::setUsedPathAt(Coordinate &coordinate, bool &usedPath) {
     this->at(coordinate).setUsedPath(usedPath);
 }
@@ -55,12 +59,19 @@ const vector<vector<Coordinate>> &Labyrinth::getMap() {
 }
 
 ostream &operator<<(ostream &os, const Labyrinth &labyrinth) {
-    string fields;
-    for (const auto &i : labyrinth.map) { //foreach-schleife
-        for (auto &j : i) { //Innere foreach-schleife
-            if(j.isWalkable())
+    string fields = " ";
+    const Coordinate *coordinate = nullptr;
+    for (unsigned int x = 0; x < labyrinth.getWidth(); ++x) { //spalteniteration
+        fields+= std::to_string(x);
+    }
+    fields += "\n";
+    for (unsigned int y = 0; y < labyrinth.getHeight(); ++y) { //zeileniteration
+        fields += std::to_string(y);
+        for (unsigned int x = 0; x < labyrinth.getWidth(); ++x) { //spalteniteration
+            coordinate = &labyrinth.at(x,y);
+            if(coordinate->isWalkable())
             {
-                if(j.isUsedPath())
+                if(coordinate->isUsedPath())
                 {
                     fields += ".";
                 }

@@ -24,7 +24,7 @@ public:
 
 private:
     //Methode
-    bool pathExists(Coordinate position);
+    bool pathExists(unsigned int x, unsigned int y);
 
     //Attribute
     Labyrinth map;

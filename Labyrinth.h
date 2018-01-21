@@ -31,8 +31,11 @@ public:
 
     void setUsedPathAt(Coordinate &coordinate, bool &usedPath);
 
-    Coordinate & at(unsigned int x, unsigned int y);
-    Coordinate & at(Coordinate & coordinate);
+    Coordinate &at(unsigned int x, unsigned int y);
+
+    Coordinate &at(Coordinate &coordinate);
+
+    const Coordinate &at(unsigned int x, unsigned int y) const;
 
 private:
     //2D Vector des Labyrinthes
