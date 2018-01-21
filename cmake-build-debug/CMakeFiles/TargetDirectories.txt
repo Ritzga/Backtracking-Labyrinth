@@ -1,3 +1,0 @@
-/home/sythelux/Projekte/Ritzga/AOPPruefung/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/sythelux/Projekte/Ritzga/AOPPruefung/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/sythelux/Projekte/Ritzga/AOPPruefung/cmake-build-debug/CMakeFiles/AOPPruefung.dir
