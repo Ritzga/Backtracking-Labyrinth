@@ -21,9 +21,18 @@ bool Solver::pathExists(unsigned int x, unsigned int y) {
     return map.at(x, y).isWalkable() && !map.at(x, y).isUsedPath();
 }
 
-bool Solver::SolveProblem(Coordinate &position) {
+bool Solver::SolveProblem(Coordinate &position, string path) {
+    if(isSolved)
+    {
+       return false;
+    }
     try {
-        //Positionen werden auf Begehbarkeit abhängig der Position geprüft
+        system("clear");
+        if(!fastSolve)
+        {
+            system("sleep 0.06");
+        }
+        //Positionen werden auf Begehbarkeit abhängig von der Position geprüft
         cout << "\naktuelle Position: " << position;
 
         //Setzt den Punkt als benutzt
@@ -33,10 +42,10 @@ bool Solver::SolveProblem(Coordinate &position) {
         cout << "Labyrinth\n" << map;
 
         if (map.getEndPoint() == position) {
-            cout << "GESCHAAAAAFT";
+            cout << "Das Labyrinth wurde gelöst!" << "\nDieser Weg ist möglich um durch " <<
+                    "das Labyrinth zu kommen:\n" << path;
             return true;
         }
-
         cout <<
              "path at " << x << "," << y - 1 << " exists " << pathExists(x, y - 1) << "\n" <<
              "path at " << x + 1 << "," << y << " exists " << pathExists(x + 1, y) << "\n" <<
@@ -44,13 +53,14 @@ bool Solver::SolveProblem(Coordinate &position) {
              "path at " << x - 1 << "," << y << " exists " << pathExists(x - 1, y) << "\n" <<
         endl;
 
-        return (pathExists(x, y - 1) && SolveProblem(map.at(x, y - 1))) || //norden
-               (pathExists(x + 1, y) && SolveProblem(map.at(x + 1, y))) || //sueden
-               (pathExists(x, y + 1) && SolveProblem(map.at(x, y + 1))) || //osten
-               (pathExists(x - 1, y) && SolveProblem(map.at(x - 1, y)));   //westen
+        return (pathExists(x, y - 1) && SolveProblem(map.at(x, y - 1), path+"O")) || //Norden
+               (pathExists(x + 1, y) && SolveProblem(map.at(x + 1, y), path+"R")) || //Osten
+               (pathExists(x, y + 1) && SolveProblem(map.at(x, y + 1), path+"U")) || //Süden
+               (pathExists(x - 1, y) && SolveProblem(map.at(x - 1, y), path+"L"));   //westen
     } catch (exception &e) {
         cerr << e.what();
     }
+    return false;
 }
 
 const Labyrinth &Solver::getMap() const {

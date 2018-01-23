@@ -61,12 +61,14 @@ const vector<vector<Coordinate>> &Labyrinth::getMap() {
 ostream &operator<<(ostream &os, const Labyrinth &labyrinth) {
     string fields = " ";
     const Coordinate *coordinate = nullptr;
-    for (unsigned int x = 0; x < labyrinth.getWidth(); ++x) { //spalteniteration
+    /*
+    for (unsigned int x = 0; x < labyrinth.getWidth(); ++x) {
         fields+= std::to_string(x);
     }
+     */
     fields += "\n";
     for (unsigned int y = 0; y < labyrinth.getHeight(); ++y) { //zeileniteration
-        fields += std::to_string(y);
+        //fields += std::to_string(y);
         for (unsigned int x = 0; x < labyrinth.getWidth(); ++x) { //spalteniteration
             coordinate = &labyrinth.at(x,y);
             if(coordinate->isWalkable())
@@ -82,7 +84,7 @@ ostream &operator<<(ostream &os, const Labyrinth &labyrinth) {
             }
             else
             {
-                fields += "*";
+                fields += "█";
             }
         }
         fields += "\n";
@@ -90,4 +92,3 @@ ostream &operator<<(ostream &os, const Labyrinth &labyrinth) {
     os << fields;
     return os;
 }
-

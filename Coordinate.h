@@ -1,7 +1,5 @@
 #ifndef Coordinate_define
 #define Coordinate_define
-
-#include <stdint-gcc.h>
 #include <ostream>
 
 class Coordinate {
