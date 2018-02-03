@@ -1,0 +1,10 @@
+Es wurden 2 Labyrinthe in dem Ordner Examples.
+Mögliche Eingaben sind, nachdem dass Programm gestartet wurde:
+"examples/labyrinth.txt" [Enter]
+N [Enter]
+Dann sollte eine Lösung des Labyrinthes erscheinen: "RURRORRR" und das Programm sollte sich beenden.
+
+Eine weitere möglichkeit ist:
+"examples/a73" [Enter]
+N [Eenter]
+Dann sollte eine größere Lösung erscheinen und das Programm sollte sich beenden.
