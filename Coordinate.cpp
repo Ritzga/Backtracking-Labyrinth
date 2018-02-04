@@ -1,4 +1,4 @@
-#include "Coordinate.h"
+#include "Coordinate.hpp"
 Coordinate::Coordinate(unsigned int x, unsigned int y)
         : x(x), y(y)
 {

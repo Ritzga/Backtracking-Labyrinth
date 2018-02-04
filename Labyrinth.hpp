@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include <ostream>
-#include "Coordinate.h"
+#include "Coordinate.hpp"
 
 #ifndef Labyrinth_define
 #define Labyrinth_define

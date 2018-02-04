@@ -1,4 +1,4 @@
-#include "Solver.h"
+#include "Solver.hpp"
 
 Solver::Solver(const string &fileName, bool graphicalSolve)
         :graphicalSolve(graphicalSolve)

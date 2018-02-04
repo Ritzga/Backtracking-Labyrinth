@@ -3,8 +3,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "Coordinate.h"
-#include "Labyrinth.h"
+#include "Coordinate.hpp"
+#include "Labyrinth.hpp"
 
 #ifndef Reader_define
 #define Reader_define

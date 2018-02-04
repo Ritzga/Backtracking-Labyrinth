@@ -1,4 +1,4 @@
-#include "Reader.h"
+#include "Reader.hpp"
 
 Reader::Reader(const string &fileName)
         : fileName(fileName)

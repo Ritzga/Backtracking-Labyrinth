@@ -1,4 +1,4 @@
-#include "Labyrinth.h"
+#include "Labyrinth.hpp"
 
 unsigned int Labyrinth::getHeight() const {
     return height;

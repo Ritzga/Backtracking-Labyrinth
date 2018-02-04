@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 #include <exception>
-#include "Reader.h"
-#include "Labyrinth.h"
-#include "Coordinate.h"
+#include "Reader.hpp"
+#include "Labyrinth.hpp"
+#include "Coordinate.hpp"
 
 #ifndef Solver_define
 #define Solver_define
