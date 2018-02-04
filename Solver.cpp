@@ -25,22 +25,23 @@ bool Solver::getIsSolved() const
     return isSolved;
 }
 
+bool Solver::isException() const
+{
+    return exception;
+}
+
 bool Solver::pathExists(unsigned int x, unsigned int y)
 {
     //prüft ob es das Feld überhaupt gibt
-    if (x > map.getWidth())
+    if (x > map.getWidth()-1)
     {
         return false;
-    } else if (y > map.getHeight())
+    }
+    else if (y > map.getHeight()-1)
     {
         return false;
     }
     return map.at(x, y).isWalkable() && !map.at(x, y).isUsedPath();
-}
-
-bool Solver::isException() const
-{
-    return exception;
 }
 
 bool Solver::SolveProblem(Coordinate &position, string path)

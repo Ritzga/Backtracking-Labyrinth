@@ -79,9 +79,20 @@ Labyrinth Reader::readMap()
         //Auslesen des Labyrinthes
         //cout << currentRow << " Labyrinth\n"; //Debug
         //Wenn nach der 4. Zeile nichts geschrieben wurde, wird ein Fehler ausgebenen
-        if(currentRow.empty() && existsWalkable == 0)
+        if(currentRow.empty())
         {
             throw runtime_error("\nEs konnten keine Felder gefunden werden, somit wurde das Labyrinth fehlerhaft aufgebaut!");
+        }
+        //Wenn das Labyrinth nich so breit ist als angegeben
+        if(currentRow.size() < generatedMap.getWidth())
+        {
+            throw runtime_error("\nDas Labyrinth ist weniger breit als angegeben, somit wurde das Labyrinth fehlerhaft aufgebaut!");
+
+        }
+        //Wenn das Labyrinth breiter ist als angegeben
+        if(currentRow.size() > generatedMap.getWidth())
+        {
+            throw runtime_error("\nDas Labyrinth ist breiter als angegeben, somit wurde das Labyrinth fehlerhaft aufgebaut!");
         }
         for(unsigned int xAsColumn=0; xAsColumn < currentRow.size(); xAsColumn++)
         {
@@ -89,10 +100,21 @@ Labyrinth Reader::readMap()
             {
                 existsWalkable++;
             }
+            if(xAsColumn > generatedMap.getWidth()-1)
+            {
+                throw runtime_error("\nDas Labyrinth ist breiter als angegeben, somit wurde das Labyrinth fehlerhaft aufgebaut!");
+            }
             mapPoints.at(xAsColumn).at(yAsRow).initialize(xAsColumn,yAsRow, currentRow[xAsColumn] != '*');
         }
         yAsRow++;
     }
+    //Fehlerbehandlungen
+    //Wenn das Labyrinth zu klein ist
+    if(yAsRow < generatedMap.getHeight())
+    {
+        throw runtime_error("\nDas Labyrinth ist kleiner in der Höhe als angegeben, somit wurde das Labyrinth fehlerhaft aufgebaut!");
+    }
+    //Wenn es keine begehbaren Felder gibt
     if(existsWalkable == 0)
     {
         throw runtime_error("\nEs gibt kein begehbares Feld im Labyrinth, somit wurde das Labyrinth fehlerhaft aufgebaut!");

@@ -22,7 +22,7 @@ int main()
     {
         Coordinate position = solver.getCurrentPosition();
         solver.SolveProblem(position, "");
-        if(solver.getIsSolved())
+        if(!solver.getIsSolved())
         {
             cout << "\nLeider konnte das Labyrinth nicht gelöst werden.";
         }

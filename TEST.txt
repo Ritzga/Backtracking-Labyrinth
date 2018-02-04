@@ -8,3 +8,51 @@ Eine weitere möglichkeit ist:
 "examples/a73" [Enter]
 N [Eenter]
 Dann sollte eine größere Lösung erscheinen und das Programm sollte sich beenden.
+
+Die Datein Fehler0-Fehler(n) sind für das Testen der Robustheit des Programms, diese
+können nach belieben geöffnet werden.
+
+fehler0:
+	Die Datei existiert nicht und wirft eine Fehlermeldung aus, dass die Datei nicht
+	gefunden wurde.
+	
+fehler1:
+	Dies ist eine leere Datei, welche eine Warnung ausgibt, dass keine Höhe und Breite
+	festgelegt wurde.
+	
+fehler2:
+	Hierbei wurde nur eine Höhe und eine Breite festgelegt aber nichts anderes, somit
+	kommt eine Fehlermeldung, weil kein Anfangspunkt gesetzt wurde.
+	
+fehler3:
+	Hier wrde eine Höhe und eine Breite festgelegt und einen Startpunkt aber kein
+	Endpunkt. Somit kommt eine Fehlermeldung, dass kein Endpunkt festgelegt wurde.
+
+fehler4:
+	Hier wurde alles festgelegt außer das Labyrinth, somit kommt eine Fehlermeldung, dass
+	kein Feld festgelegt wurde.
+
+fehler5:
+	In dieser Datei ist das Labyrinth zu breit.
+
+fehler6:
+	Hierbei ist das Labyrinth zu klein in der Höhe.
+
+fehler7:
+	Dies Demonstriert, dass wenn das Labyrinth manchmal schmaler ist als die festgelegte
+	breite, auch dies berücksichtigt wird.
+
+fehler8:
+	Dieses Labyrinth ist mit absicht falsch um die Unlösbarkeit zu demonstrieren.
+	Hierbei werden alle Wege durchgegangen und dann festgestellt, dass keine Lösung
+	möglich ist.
+
+fehler9:
+	Dieses Labyrinth wurde mit falschen Zeichen formatiert. Da alle Zeichen die nicht
+	* sind als begehbares Feld gewertet werden, ist das gesamte Labyrinth begehbar.
+
+fehler10:
+	Hierbei wurden die Höhe, Breite, Start und Endpunkt mit nicht zulässigen Zeichen
+	beschrieben. Auch hier wird der Fehler abgefangen, jedoch mit einer Anzeige, eines
+	Unbekannten Fehlers.
+

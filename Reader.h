@@ -28,6 +28,7 @@ public:
      * initialisiert der die größe des Labyrinthes ausliest, dann den Start/Endpunkt und dann das
      * eigentliche Labyrinth. Vor dem Auslesen wird ein Objekt der Klasse Labyrinth mit dem default
      * Konstruktor initialisiert und dann mit den ausgelesenen Werten defniert.
+     * In der TEST.txt werden alle Fehler demonstriert die abgefangen werden können.
      * @return Labyrinth: Generiertes Labyrinth, welches ausgelesen wurde
      */
     Labyrinth readMap();
