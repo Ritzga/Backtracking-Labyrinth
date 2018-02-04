@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include <stdexcept>
 #include "Reader.hpp"
 #include "Labyrinth.hpp"
 #include "Coordinate.hpp"

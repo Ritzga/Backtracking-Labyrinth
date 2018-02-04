@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <ostream>
+#include <stdexcept>
 #include "Coordinate.hpp"
 
 #ifndef Labyrinth_define
